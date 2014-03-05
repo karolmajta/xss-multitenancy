@@ -1,0 +1,37 @@
+<!doctype html>
+<html>
+<head>
+</head>
+<body>
+	<div>
+		<h1>Exploiting XSS and multitenancy</h1>	
+		<p>
+			Lots of servers, like <a href="http://student.agh.edu.pl">http://student.agh.edu.pl</a>
+			are multi-tenant environments that allow each user to run own php application in a
+			server path subdirectory. This way one user can have his own script at
+			<i>http://student.agh.edu.pl/~average-joe/</i> while other can run one at
+			<i>http://student.agh.edu.pl/~mr-hacker/</i>. These two applications are completely
+			separate but <b>they share the same domain</b> which has far reaching consequences.
+		</p>
+		<p>
+			Chrome browser when performing password autocomplete only compares the domain name
+			part of the url. This means that if Average Joe used the <i>remember password</i>
+			feature on <i>http//student.agh.edu.pl/~average-joe/</i> Mr. Hacker can use a
+			specially crafted form on his website to trick Chrome into filling it out with
+			Joe's credentials. The only requirement this form must meet is to have inputs
+			with same names as on Joe's site.
+		</p>
+		<p>
+			After the fields are filled out it's trivial to read their values and send their
+			to Mr. Hacker's server using AJAX.
+		</p>
+		<p>
+			This application allows you to replicate this flow. It's source code is hosted
+			at <a href="http://github.com/karolmajta/xss-multitenancy">http://github.com/karolmajta/xss-multitenancy</a>
+		</p>
+		<p>
+			To start please go to <a href="/~average-joe/">/~average-joe/</a>.
+		</p>
+	</div>
+</body>
+</html>
