@@ -15,7 +15,7 @@ Chrome into filling it out with Joe's credentials. The only requirement
 this form must meet is to have inputs with same names as on Joe's site.
 
 After the fields are filled out it's trivial to read their values and
-send their to Mr. Hacker's server using AJAX.
+send them to Mr. Hacker's server using AJAX.
 
 This application allows you to replicate this flow. It's source code is
 hosted at http://github.com/karolmajta/xss-multitenancy
