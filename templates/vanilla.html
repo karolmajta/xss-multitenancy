@@ -1,21 +1,37 @@
 <!doctype html>
 <html>
 <head>
+    <link rel="stylesheet" type="text/css" href="/static/bower_components/bootstrap/dist/css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="/static/bower_components/bootstrap/dist/css/bootstrap-theme.css">
 </head>
 <body>
-	<div>
-		<h1>Welcome to average joe's site...</h1>
-		<p>
-			After you submit the login form, please make sure to store the
-			password for autocomplete when asked by Chrome to do so.
-		</p>
-	</div>
-	<div>
-		<form method="post" action="">
-			Username: <input id="username" name="username" type="text">
-			Password: <input id="password" name="password" type="password">
-			<input type="submit" name="submit" value="Submit">
-		</form>
-	</div>
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-8 col-xs-offset-2">
+                <h1>Welcome to average joe's site...</h1>
+                <p>
+                    After you submit the login form, please make sure to store the
+                    password for autocomplete when asked by Chrome to do so.
+                </p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-8 col-xs-offset-2">
+                <form role="form" method="post" action="">
+                    <div class="form-group">
+                        <label for="username">Email address</label>
+                        <input type="text" class="form-control" id="username" name="username"
+                               placeholder="Enter username">
+                    </div>
+                    <div class="form-group">
+                        <label for="password">Password</label>
+                        <input type="password" class="form-control" id="password" name="password"
+                               placeholder="Enter password">
+                    </div>
+                    <button type="submit" class="btn btn-default">Submit</button>
+                </form>
+            </div>
+        </div>
+    </div>
 </body>
 </html>

